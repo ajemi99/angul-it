@@ -1,28 +1,66 @@
-<div class="home-container">
-  <div class="home-card">
+<mat-card class="home-card">
+
+  <mat-card-header>
 
     <div class="logo">
-      🤖
+      <mat-icon>verified_user</mat-icon>
     </div>
 
-    <h1>{{ title }}</h1>
+    <mat-card-title>
+      {{ title }}
+    </mat-card-title>
 
-    <p class="subtitle">
-      Welcome to Angul-It.
-      <br>
-      Complete a series of interactive CAPTCHA challenges
-      to prove that you are a human.
+    <mat-card-subtitle>
+      Interactive CAPTCHA Challenge
+    </mat-card-subtitle>
+
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <p>
+      Welcome to Angul-It!
+    </p>
+
+    <p>
+      Complete a series of CAPTCHA challenges to prove
+      that you are a human and not a robot.
     </p>
 
     <div class="features">
-      <span class="feature">🖼 Image Selection</span>
-      <span class="feature">🧮 Math Puzzle</span>
-      <span class="feature">⌨ Text Verification</span>
+
+      <div class="feature">
+        <mat-icon>image</mat-icon>
+        <span>Image Selection</span>
+      </div>
+
+      <div class="feature">
+        <mat-icon>calculate</mat-icon>
+        <span>Math Challenge</span>
+      </div>
+
+      <div class="feature">
+        <mat-icon>keyboard</mat-icon>
+        <span>Text Verification</span>
+      </div>
+
     </div>
 
-    <button (click)="startChallenge()">
-      Start Challenge 🚀
+  </mat-card-content>
+
+  <mat-card-actions>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="startChallenge()">
+
+      Start Challenge
+
+      <mat-icon>arrow_forward</mat-icon>
+
     </button>
 
-  </div>
-</div>
+  </mat-card-actions>
+
+</mat-card>

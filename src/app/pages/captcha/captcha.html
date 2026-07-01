@@ -1,1 +1,29 @@
-<p>captcha works!</p>
+@if (currentChallenge) {
+
+  @if (currentChallenge.type === 'math') {
+
+    <app-math-challenge
+      [challenge]="currentChallenge"
+      (verified)="onAnswerVerified($event)">
+    </app-math-challenge>
+
+  }
+
+  @else if (currentChallenge.type === 'text') {
+
+    <app-text-challenge
+      [challenge]="currentChallenge"
+      (verified)="onAnswerVerified($event)">
+    </app-text-challenge>
+
+  }
+  @else if (currentChallenge.type === 'image') {
+
+    <app-image-challenge
+      [challenge]="currentChallenge"
+      (verified)="onAnswerVerified($event)">
+    </app-image-challenge>
+
+  }
+
+}

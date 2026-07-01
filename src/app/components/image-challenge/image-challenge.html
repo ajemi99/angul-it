@@ -1,0 +1,32 @@
+<h2>{{ challenge().question }}</h2>
+
+<div class="image-grid">
+
+  @for (image of challenge().options; track image.id) {
+
+    <div
+      class="image-card"
+      [class.selected]="isSelected(image.id)"
+      (click)="toggleSelection(image.id)">
+
+      <img
+        [src]="image.image"
+        alt="captcha image">
+
+      @if (isSelected(image.id)) {
+
+        <div class="checkmark">
+          ✓
+        </div>
+
+      }
+
+    </div>
+
+  }
+
+</div>
+
+<button (click)="verifyAnswer()">
+  Verify
+</button>

@@ -1,0 +1,26 @@
+<h2>
+
+  {{ challenge().question }}
+
+</h2>
+
+<input
+  type="text"
+  [formControl]="answer"
+  placeholder="Type here">
+
+@if (answer.invalid && answer.touched) {
+
+  <p class="error">
+
+    Text is required.
+
+  </p>
+
+}
+
+<button (click)="verifyAnswer()">
+
+  Verify
+
+</button>

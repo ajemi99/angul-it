@@ -1,3 +1,4 @@
+import { ImageOption } from './image-option';
 export interface Challenge {
 
   id: number;
@@ -6,8 +7,8 @@ export interface Challenge {
 
   question: string;
 
-  options?: string[];
-
+  options?: ImageOption[];
+  
   answer: string | string[];
 
 }

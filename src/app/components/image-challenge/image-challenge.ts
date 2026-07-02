@@ -2,10 +2,11 @@ import { Component, input, output } from '@angular/core';
 
 import { Challenge } from '../../models/challenge';
 import { CaptchaService } from '../../services/CaptchaService';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-image-challenge',
-  imports: [],
+  imports: [MatButtonModule,MatIconModule],
   templateUrl: './image-challenge.html',
   styleUrl: './image-challenge.css'
 })

@@ -7,10 +7,19 @@ import {
 
 import { Challenge } from '../../models/challenge';
 import { CaptchaService } from '../../services/CaptchaService';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon'
 @Component({
   selector: 'app-text-challenge',
-  imports: [ReactiveFormsModule],
+ imports: [
+    ReactiveFormsModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   templateUrl: './text-challenge.html',
   styleUrl: './text-challenge.css'
 })

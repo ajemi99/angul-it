@@ -1,29 +1,34 @@
-@if (currentChallenge) {
+<div class="captcha-container">
 
-  @if (currentChallenge.type === 'math') {
-
-    <app-math-challenge
-      [challenge]="currentChallenge"
-      (verified)="onAnswerVerified($event)">
-    </app-math-challenge>
-
+  @if (currentChallenge) {
+    @if (currentChallenge.type === 'math') {
+      <app-math-challenge [challenge]="currentChallenge" (verified)="onAnswerVerified($event)"></app-math-challenge>
+    }
+    @else if (currentChallenge.type === 'text') {
+      <app-text-challenge [challenge]="currentChallenge" (verified)="onAnswerVerified($event)"></app-text-challenge>
+    }
+    @else if (currentChallenge.type === 'image') {
+      <app-image-challenge [challenge]="currentChallenge" (verified)="onAnswerVerified($event)"></app-image-challenge>
+    }
   }
 
-  @else if (currentChallenge.type === 'text') {
+  <div class="captcha-footer">
+    
+    @if (showError) {
+      <p class="error-msg">❌ Incorrect answer, please try again!</p>
+    }
 
-    <app-text-challenge
-      [challenge]="currentChallenge"
-      (verified)="onAnswerVerified($event)">
-    </app-text-challenge>
+    <div class="nav-actions">
+      <button 
+        mat-stroked-button 
+        class="back-btn" 
+        (click)="goBack()" 
+        [disabled]="!hasPreviousChallenge">
+        <mat-icon>arrow_back</mat-icon>
+        Previous
+      </button>
+    </div>
 
-  }
-  @else if (currentChallenge.type === 'image') {
+  </div>
 
-    <app-image-challenge
-      [challenge]="currentChallenge"
-      (verified)="onAnswerVerified($event)">
-    </app-image-challenge>
-
-  }
-
-}
+</div>

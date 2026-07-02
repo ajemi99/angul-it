@@ -1,0 +1,109 @@
+.captcha-container {
+  max-width: 500px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.error-msg {
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 15px;
+  animation: shake 0.4s ease-in-out;
+}
+
+.navigation-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.back-btn {
+  padding: 10px 15px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* حركة خفيفة لرسالة الخطأ */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+/* الفوتر لي هاز الميساج والبوطونة */
+.captcha-footer {
+  width: 100%;
+  max-width: 400px; /* 👈 عطيناه نفس عبار المربع باش يجيو مقادين */
+  margin: 15px auto 0; /* 👈 باش يجي مسنتر تحت المربع مباشرة */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* باش البوطونة تجي فليسر ديال المربع */
+.nav-actions {
+  display: flex;
+  justify-content: flex-start; 
+}
+
+/* ستيل ديال البوطونة باش تجي باهتة (Secondary Action) */
+.back-btn {
+  border-radius: 8px !important;
+  padding: 4px 16px !important;
+  font-weight: 500;
+  color: #64748b !important; /* 👈 لون رمادي باهت مريح للعين */
+  border: 1px solid #e2e8f0 !important; /* 👈 إطار خفيف جداً */
+  background-color: #ffffff !important;
+  transition: all 0.2s ease;
+}
+
+/* باش حتى ديك الفليش (الأيقونة) تجي باهتة مع التيكست */
+.back-btn mat-icon {
+  color: #94a3b8 !important; 
+}
+
+/* فاش كتحط عليها السوري (Hover) كيبان تأثير خفيف زوين */
+.back-btn:hover:not([disabled]) {
+  background-color: #f8fafc !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* فاش كتكون البوطونة طافية (Disabled) */
+.back-btn:disabled {
+  opacity: 0.5;
+  background-color: transparent !important;
+  border-color: #f1f5f9 !important;
+}   
+
+/* ميساج الخطأ */
+.error-msg {
+  color: #dc3545;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  background-color: #fdf2f2;
+  border-radius: 8px;
+  border: 1px solid #f8d7da;
+  animation: shake 0.4s ease-in-out;
+}
+
+/* أنيماسيون خفيفة للخطأ */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}   

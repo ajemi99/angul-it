@@ -1,101 +1,135 @@
+/* الصندوق الأساسي: صغرناه باش يجي مجموع */
+.challenge-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  padding: 15px 15px; /* 👈 نقصنا من البادينغ */
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 350px; /* 👈 صغرنا العرض باش كلشي يصغار معاه */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* الهيدر الأزرق (نقصنا منو حتى هو) */
+.captcha-header {
+  background-color: #2563eb;
+  color: white;
+  width: 100%;
+  padding: 12px 15px; /* 👈 بادينغ خفيف */
+  border-radius: 8px;
+  margin-bottom: 15px; /* 👈 مسافة أقل */
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.captcha-header h3 {
+  margin: 0;
+  font-size: 15px; /* 👈 صغرنا الخط شوية */
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.header-icon {
+  color: white;
+  opacity: 0.9;
+  transform: scale(1);
+}
+
+/* شبكة التصاور */
 .image-grid {
-
   display: grid;
-
-  grid-template-columns: repeat(3, 180px);
-
-  justify-content: center;
-
-  gap: 15px;
-
-  margin: 30px 0;
-
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px; /* 👈 صغرنا المسافة بين التصاور باش يجيو متقاربين */
+  width: 100%;
+  margin-bottom: 15px;
 }
 
-.image-card {
-
+/* الإطار ديال التصويرة */
+.image-item {
   position: relative;
-
-  width: 180px;
-
-  height: 130px;
-
+  width: 100%;
+  aspect-ratio: 1 / 1; 
   cursor: pointer;
-
-  border: 3px solid transparent;
-
-  border-radius: 10px;
-
+  border-radius: 4px;
   overflow: hidden;
-
-  transition: 0.3s;
-
+  background-color: #f1f5f9;
+  transition: all 0.2s ease;
 }
 
-.image-card img {
-
+/* 👈 هادي لي كضامن التصويرة تبان كاملة ومقادة */
+.image-item img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background: #f5f5f5;
+  object-fit: contain; /* 👈 الساروت هو هادا: بدلنا cover بـ contain */
+  background-color: #ffffff; /* 👈 زدنا خلفية بيضاء باش إيلا شاطت شي بلاصة خاوية تبان نقية */
   display: block;
-
+  transition: transform 0.2s ease;
 }
 
-.image-card:hover {
-
-  transform: scale(1.05);
-
+.image-item:hover img {
+  transform: scale(1.05); 
 }
 
-.selected {
-
-  border-color: #1976d2;
-
+/* تأثير التحديد (Selection Effect) */
+.image-item.selected img {
+  transform: scale(0.85); 
+  border-radius: 4px;
 }
 
-.checkmark {
+.image-item.selected {
+  background-color: #eff6ff; 
+}
 
+/* الغلاف لي فيه علامة الصح */
+.selection-overlay {
   position: absolute;
-
-  top: 8px;
-
-  right: 8px;
-
-  width: 28px;
-
-  height: 28px;
-
-  border-radius: 50%;
-
-  background: #1976d2;
-
-  color: white;
-
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  font-weight: bold;
-
-  font-size: 18px;
-
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 4px; /* صغرناه باش الأيقونة تجي فالبلاصة مقادة */
+  pointer-events: none; 
 }
 
-button {
+.check-icon {
+  color: #2563eb;
+  background: white;
+  border-radius: 50%;
+  font-size: 20px; /* 👈 أيقونة الصح صغرناها شوية */
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
 
-  display: block;
+.w-100 {
+  width: 100%;
+}
 
-  width: 220px;
+/* زر التحقق */
+.verify-btn {
+  padding: 22px 0 !important; /* 👈 رديناه رقيق شوية باش مانضيعوش المساحة */
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 8px !important;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
 
-  margin: 25px auto 0;
+.verify-btn mat-icon {
+  margin-right: 8px;
+}
 
-  padding: 12px;
-
-  font-size: 16px;
-
-  cursor: pointer;
-
+.verify-btn:not([disabled]):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(63, 81, 181, 0.3);
 }

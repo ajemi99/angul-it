@@ -1,19 +1,36 @@
-<h2>{{ challenge().question }}</h2>
+<div class="challenge-box">
+  
+  <!-- البلاصة لي كيبان فيها السؤال -->
+  <div class="captcha-display">
+    <mat-icon class="captcha-icon">calculate</mat-icon> <!-- 👈 بدلنا الأيقونة لـ ديال الحساب -->
+    <h2 class="noselect distorted-text">{{ challenge().question }}</h2>
+  </div>
 
-<input
-  type="text"
-  [formControl]="answer"
-  placeholder="Your answer">
+  <!-- البلاصة ديال الإجابة بـ Material Form -->
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Enter the result</mat-label>
+    
+    <input 
+      matInput 
+      [formControl]="answer" 
+      (keyup.enter)="verifyAnswer()" 
+      placeholder="Type the answer here..."
+      autocomplete="off">
+    
+    @if (answer.invalid && (answer.dirty || answer.touched)) {
+      <mat-error>This field is required</mat-error>
+    }
+  </mat-form-field>
 
-@if (answer.invalid && answer.touched) {
+  <!-- بوطونة الإرسال -->
+  <button 
+    mat-flat-button 
+    color="primary" 
+    class="w-100 verify-btn"
+    (click)="verifyAnswer()"
+    [disabled]="answer.invalid">
+    <mat-icon>verified</mat-icon>
+    Verify Answer
+  </button>
 
-  <p class="error">
-    Answer is required.
-  </p>
-
-}
-
-<button
-  (click)="verifyAnswer()">
-  Verify
-</button>
+</div>

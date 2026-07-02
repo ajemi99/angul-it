@@ -1,26 +1,33 @@
-<h2>
+<div class="challenge-box">
+  
+  <div class="captcha-display">
+    <mat-icon class="captcha-icon">text_fields</mat-icon>
+    <h2 class="noselect distorted-text">{{ challenge().question }}</h2>
+  </div>
 
-  {{ challenge().question }}
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Enter the text exactly as shown</mat-label>
+    
+    <input 
+      matInput 
+      [formControl]="answer" 
+      (keyup.enter)="verifyAnswer()" 
+      placeholder="Type your answer here..."
+      autocomplete="off">
+    
+    @if (answer.invalid && (answer.dirty || answer.touched)) {
+      <mat-error>This field is required</mat-error>
+    }
+  </mat-form-field>
 
-</h2>
+  <button 
+    mat-flat-button 
+    color="primary" 
+    class="w-100 verify-btn"
+    (click)="verifyAnswer()"
+    [disabled]="answer.invalid">
+    <mat-icon>verified</mat-icon>
+    Verify Answer
+  </button>
 
-<input
-  type="text"
-  [formControl]="answer"
-  placeholder="Type here">
-
-@if (answer.invalid && answer.touched) {
-
-  <p class="error">
-
-    Text is required.
-
-  </p>
-
-}
-
-<button (click)="verifyAnswer()">
-
-  Verify
-
-</button>
+</div>

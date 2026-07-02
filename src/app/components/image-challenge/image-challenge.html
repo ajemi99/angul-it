@@ -1,32 +1,37 @@
-<h2>{{ challenge().question }}</h2>
+<div class="challenge-box">
+  
+  <div class="captcha-header">
+    <mat-icon class="header-icon">image_search</mat-icon>
+    <h3>{{ challenge().question }}</h3>
+  </div>
 
-<div class="image-grid">
+  <div class="image-grid">
+    @for (image of challenge().options; track image.id) {
+      <div 
+        class="image-item" 
+        [class.selected]="isSelected(image.id)"
+        (click)="toggleSelection(image.id)">
+        
+        <img [src]="image.image" alt="captcha image">
+        
+        @if (isSelected(image.id)) {
+          <div class="selection-overlay">
+            <mat-icon class="check-icon">check_circle</mat-icon>
+          </div>
+        }
 
-  @for (image of challenge().options; track image.id) {
+      </div>
+    }
+  </div>
 
-    <div
-      class="image-card"
-      [class.selected]="isSelected(image.id)"
-      (click)="toggleSelection(image.id)">
-
-      <img
-        [src]="image.image"
-        alt="captcha image">
-
-      @if (isSelected(image.id)) {
-
-        <div class="checkmark">
-          ✓
-        </div>
-
-      }
-
-    </div>
-
-  }
+  <button 
+    mat-flat-button 
+    color="primary" 
+    class="w-100 verify-btn"
+    (click)="verifyAnswer()"
+    [disabled]="selectedImages.length === 0">
+    <mat-icon>verified</mat-icon>
+    Verify Answer
+  </button>
 
 </div>
-
-<button (click)="verifyAnswer()">
-  Verify
-</button>

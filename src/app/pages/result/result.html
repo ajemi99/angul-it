@@ -1,1 +1,27 @@
-<p>result works!</p>
+<mat-card class="result-card">
+  
+  <mat-card-header>
+    <mat-card-title>🎉 Challenge Completed! 🎉</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="score-card">
+      <p>Your Final Score:</p>
+      <h3>{{ score }} / {{ totalChallenges }}</h3>
+    </div>
+
+    @if(score === totalChallenges) {
+      <p class="success-msg">Perfect! You are definitely human 🤖🚫</p>
+    }
+  </mat-card-content>
+
+  <mat-card-actions class="result-actions">
+    <button mat-flat-button color="primary" class="action-btn" (click)="restartChallenge()">
+      <mat-icon>refresh</mat-icon> Restart
+    </button>
+    <button mat-stroked-button color="primary" class="action-btn" (click)="goToHome()">
+      <mat-icon>home</mat-icon> Home
+    </button>
+  </mat-card-actions>
+
+</mat-card>

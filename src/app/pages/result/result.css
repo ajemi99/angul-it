@@ -1,0 +1,58 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.result-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+mat-card-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.score-card {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 2px dashed #cbd5e1;
+}
+
+.score-card h3 {
+  font-size: 3rem;
+  margin: 10px 0 0 0;
+  color: #1e293b;
+}
+
+/* Container لي جامع البوطونات */
+.result-actions {
+  display: flex;
+  flex-direction: row; /* 👈 هادي هي الساروت: باش يجو حدا بعضياتهم */
+  justify-content: center; /* 👈 باش يتسنطرو فوسط البطاقة */
+  gap: 15px; /* 👈 مسافة خفيفة بيناتهم باش ما يتلاصقوش */
+  margin-top: 25px;
+  width: 100%;
+}
+
+/* تعديل حجم البوطونات باش يجيو قد قد */
+.action-btn {
+  flex: 1; /* 👈 باش ياخدو نفس العبار */
+  max-width: 150px; /* 👈 اختياري: باش ما يجيوش عراض بزاف */
+  padding: 20px 0 !important;
+}
+
+.success-msg { color: #10b981; font-weight: bold; }
+.warning-msg { color: #f59e0b; font-weight: bold; } 

@@ -120,6 +120,9 @@ export class CaptchaService {
 
     if (this.currentIndex > 0) {
       this.currentIndex--;
+      if (this.score > 0) {
+        this.score--;
+      }
     }
 
     this.saveProgress();

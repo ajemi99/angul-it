@@ -5,5 +5,5 @@ export interface Progress {
   score: number;
 
   completed: boolean;
-
+  signature?: string;
 }
